@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavreado - Jogo de Adivinhação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <div class="game-container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="header-left">
+                <button id="help-btn" class="icon-btn" title="Como Jogar">❓</button>
+            </div>
+            <h1>PALAVREADO</h1>
+            <div class="header-right">
+                <button id="stats-btn" class="icon-btn" title="Estatísticas">📊</button>
+                <button id="theme-btn" class="icon-btn" title="Alternar Tema">🌙</button>
+            </div>
+        </header>
+
+        <!-- Seletor de Modo -->
+        <div class="mode-selector">
+            <button id="mode-daily" class="mode-btn active">Desafio Diário</button>
+            <button id="mode-practice" class="mode-btn">Modo Infinito</button>
+        </div>
+
+        <!-- Tabuleiro do Jogo -->
+        <div id="board" class="board"></div>
+
+        <!-- Mensagem de Alerta Flutuante -->
+        <div id="message-container"></div>
+
+        <!-- Teclado Virtual -->
+        <div id="keyboard" class="keyboard"></div>
+    </div>
+
+    <!-- Modal de Ajuda / Instruções -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-help">&times;</span>
+            <h2>Como Jogar</h2>
+            <p>Adivinhe a palavra secreta em 6 tentativas.</p>
+            <p>Cada palpite deve ser uma palavra válida de 5 letras.</p>
+            <p>A cor dos blocos mudará para mostrar quão perto você está do resultado:</p>
+            
+            <div class="example-row">
+                <div class="tile correct">P</div>
+                <div class="tile">A</div>
+                <div class="tile">N</div>
+                <div class="tile">T</div>
+                <div class="tile">E</div>
+            </div>
+            <p><strong>P</strong> faz parte da palavra e está na posição correta.</p>
+
+            <div class="example-row">
+                <div class="tile">V</div>
+                <div class="tile present">I</div>
+                <div class="tile">O</div>
+                <div class="tile">L</div>
+                <div class="tile">A</div>
+            </div>
+            <p><strong>I</strong> faz parte da palavra, mas na posição errada.</p>
+
+            <div class="example-row">
+                <div class="tile">A</div>
+                <div class="tile">M</div>
+                <div class="tile absent">I</div>
+                <div class="tile">G</div>
+                <div class="tile">O</div>
+            </div>
+            <p><strong>I</strong> não faz parte da palavra em nenhuma posição.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Estatísticas -->
+    <div id="stats-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-stats">&times;</span>
+            <h2>Estatísticas</h2>
+            <div class="stats-summary">
+                <div class="stat-box">
+                    <span id="stat-played" class="stat-num">0</span>
+                    <span class="stat-label">Jogados</span>
+                </div>
+                <div class="stat-box">
+                    <span id="stat-win" class="stat-num">0%</span>
+                    <span class="stat-label">Vitórias</span>
+                </div>
+                <div class="stat-box">
+                    <span id="stat-streak" class="stat-num">0</span>
+                    <span class="stat-label">Sequência</span>
+                </div>
+                <div class="stat-box">
+                    <span id="stat-max-streak" class="stat-num">0</span>
+                    <span class="stat-label">Máxima</span>
+                </div>
+            </div>
+            
+            <div id="share-section" style="display: none; margin-top: 20px; text-align: center;">
+                <button id="share-btn" class="share-btn">📤 Compartilhar Resultado</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
